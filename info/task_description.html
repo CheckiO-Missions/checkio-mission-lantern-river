@@ -1,44 +1,72 @@
+<div class="story">
+    <p>
+
+    </p>
+</div>
+
 <p>
-    <i>( Describe task in general )</i>
+    Our robots are going to put illuminated lanterns on a river and look how they are floated.
+    Rivers in the RoboLand have flat banks, right angle turns and the same width on the whole flowing.
 </p>
 
 <p>
-    Sum two passed ints
+    Robot put all lanterns in one row for the whole width of the river simultaneously.
+    Each lantern float with constant speed - 1 cell/minute.
+    A river has several streams and each lantern will float in own stream which are not intersected.
+    The image below describes how streams are routed.
 </p>
 
 <p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
-<p>
-    <strong>Input: </strong> Two arguments. Both are int
+    <img title="river-schema" src="{{MEDIA}}river-schema.png" alt="river-schema" width="358px"/>
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    The river flow from north to south edge. It's not intersected or merged with other river or itself.
+    Because the river has the same width streams are not intersected each other.
 </p>
 
+<p>
+    Robots place lanterns on the north edge of river. This is 0th minutes.
+    The number of lanterns is equal to the river width in cells.
+    Each lantern light all neighbours water cells (including diagonals cells).
+    You should model lantern flow and say how many water cells will be lightened in X minute.
+</p>
+<p>
+    You are given a map of river fragment as a sequence of strings which forms a matrix.
+    Water cells are marked as ".", land cells - "X".
+    And you are given a time as a number of minutes from the start.
+    Count how many water cells will be lightened.
+    If a cell is lightened twice then count it once.
+    And don't forget count cells with lanterns.
+</p>
+<p style="text-align: center;">
+    <img class="for_info_only" title="lantern-examples" src="{{MEDIA}}lantern-examples.png" alt="lantern-examples" width="600px"/>
+    <img class="for_editor_only" title="lantern-examples" src="{{MEDIA}}lantern-examples.png" alt="lantern-examples" width="380px"/>
+</p>
+<p>
+    <strong>Input: </strong> Two arguments. A map of river as a tuple of strings and time as an integer.
+</p>
+
+<p>
+    <strong>Output: </strong> The number of lightened water cells as an integer.
+</p>
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
+<!--TODO-->
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    <!--TODO-->
 </p>
 
 <p>
     <strong>Precondition:</strong>
-    <i>Constraints for Input</i>
+    <!--TODO-->
 </p>
