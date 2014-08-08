@@ -7,19 +7,77 @@ Each test is dict with
     "explanation" -- not necessary key, it's using for additional info in animation.
 """
 
-
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": [("X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "XXX....X"), 0],
+            "answer": 8,
+            "explanation": ("XOOOOXXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X|||>>|X",
+                            "X||>>||X",
+                            "X|>>|||X",
+                            "X>>||||X",
+                            "XXX||||X")
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
-        }
+            "input": [("X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "XXX....X"), 7],
+            "answer": 18,
+            "explanation": ("XOOOOXXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X|||>>|X",
+                            "X||>>||X",
+                            "X|>>|||X",
+                            "X>>||||X",
+                            "XXX||||X")
+        },
+        {
+            "input": [("X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X....XXX",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "X......X",
+                       "XXX....X"), 9],
+            "answer": 15,
+            "explanation": ("XOOOOXXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X||||XXX",
+                            "X|||>>|X",
+                            "X||>>||X",
+                            "X|>>|||X",
+                            "X>>||||X",
+                            "XXX||||X")
+        },
     ],
     "Extra": [
         {

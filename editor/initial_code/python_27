@@ -1,11 +1,36 @@
-def checkio(a, b):
-    """
-        sums two passed arguments
-    """
-    return None
+def lanterns(river_map, minutes):
+    return 0
+
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    assert lanterns(("X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "XXX....X"), 0) == 8, "Start"
+    assert lanterns(("X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "XXX....X"), 7) == 18, "7th minute"
+    assert lanterns(("X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X....XXX",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "X......X",
+                     "XXX....X"), 9) == 15, "9th minute"
