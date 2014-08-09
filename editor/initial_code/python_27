@@ -33,4 +33,4 @@ if __name__ == '__main__':
                      "X......X",
                      "X......X",
                      "X......X",
-                     "XXX....X"), 9) == 15, "9th minute"
+                     "XXX....X"), 9) == 17, "9th minute"
