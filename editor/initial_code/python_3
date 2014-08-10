@@ -1,36 +1,36 @@
-def lanterns(river_map, minutes):
+def lanterns_flow(river_map, minutes):
     return 0
 
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert lanterns(("X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "XXX....X"), 0) == 8, "Start"
-    assert lanterns(("X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "XXX....X"), 7) == 18, "7th minute"
-    assert lanterns(("X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X....XXX",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "X......X",
-                     "XXX....X"), 9) == 17, "9th minute"
+    assert lanterns_flow(("X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "XXX....X"), 0) == 8, "Start"
+    assert lanterns_flow(("X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "XXX....X"), 7) == 18, "7th minute"
+    assert lanterns_flow(("X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X....XXX",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "X......X",
+                          "XXX....X"), 9) == 17, "9th minute"
