@@ -40,10 +40,14 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'lanterns_flow';
 
-            var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
+            var checkioInput = data.in || [
+                ["X.X", "X.X", "X.X"],
+                0
+            ];
+            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput[0]).replace("[", "(").replace("]", ")") + ", "
+                + checkioInput[1] + ')';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
@@ -69,6 +73,8 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             $content.find('.call').html(checkioInputStr);
             $content.find('.output').html('Working...');
 
+            var svg = new RiverSvg($content.find(".explanation svg")[0]);
+            svg.prepare(checkioInput[0]);
 
             if (data.ext) {
                 var rightResult = data.ext["answer"];
@@ -85,6 +91,11 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                     $content.find('.output').addClass('error');
                     $content.find('.call').addClass('error');
                 }
+                else {
+                    $content.find('.answer').remove();
+                }
+
+                svg.ext(explanation[0]);
             }
             else {
                 $content.find('.answer').remove();
@@ -117,23 +128,82 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 //                this_e.sendToConsoleCheckiO("something");
 //            });
 //        });
+        function RiverSvg(dom) {
 
-        var colorOrange4 = "#F0801A";
-        var colorOrange3 = "#FA8F00";
-        var colorOrange2 = "#FAA600";
-        var colorOrange1 = "#FABA00";
 
-        var colorBlue4 = "#294270";
-        var colorBlue3 = "#006CA9";
-        var colorBlue2 = "#65A1CF";
-        var colorBlue1 = "#8FC7ED";
+            var colorOrange4 = "#F0801A";
+            var colorOrange3 = "#FA8F00";
+            var colorOrange2 = "#FAA600";
+            var colorOrange1 = "#FABA00";
 
-        var colorGrey4 = "#737370";
-        var colorGrey3 = "#9D9E9E";
-        var colorGrey2 = "#C5C6C6";
-        var colorGrey1 = "#EBEDED";
+            var colorBlue4 = "#294270";
+            var colorBlue3 = "#006CA9";
+            var colorBlue2 = "#65A1CF";
+            var colorBlue1 = "#8FC7ED";
 
-        var colorWhite = "#FFFFFF";
+            var colorGrey4 = "#737370";
+            var colorGrey3 = "#9D9E9E";
+            var colorGrey2 = "#C5C6C6";
+            var colorGrey1 = "#EBEDED";
+
+            var colorWhite = "#FFFFFF";
+
+            var p = 1;
+
+            var paper;
+            var cell;
+
+            var sizeX = 380 + p * 2;
+            var sizeY;
+
+            var back;
+
+            var attrCell = {stroke: colorBlue4, strokeWidth: 2, fillOpacity: 0};
+
+            this.prepare = function (map) {
+                paper = Snap(dom);
+                var height = map.length;
+                var width = map[0].length;
+                cell = sizeX / width;
+                sizeY = p * 2 + cell * height;
+                paper.attr({width: sizeX, height: sizeY, background: colorBlue1});
+
+                cell = (sizeX - 2 * p) / map[0].length;
+
+                attrCell.strokeWidth = cell < 20 ? 1 : 2;
+
+                back = paper.rect(p, p, Math.floor(sizeX - 2 * p), Math.floor(sizeY - 2 * p)).attr(
+                    {strokeWidth: 0, fill: colorBlue1});
+
+                for (var i = 0; i < map.length; i++) {
+                    for (var j = 0; j < map[i].length; j++) {
+                        var r = paper.rect(p + j * cell, p + i * cell, cell, cell).attr(attrCell);
+                        if (map[i][j] === "X") {
+                            r.attr({fill: colorGrey4, fillOpacity: 1});
+                        }
+                    }
+                }
+            };
+
+            this.ext = function (lmap) {
+                for (var i = 0; i < lmap.length; i++) {
+                    for (var j = 0; j < lmap[i].length; j++) {
+                        if (lmap[i][j] === "0") {
+                            paper.circle(p + cell * (j + 0.5), p + cell * (i + 0.5), cell * 0.4).attr(
+                                {stroke: colorBlue4, strokeWidth: attrCell.strokeWidth, fill: colorOrange2});
+                        }
+                        if (lmap[i][j] === "0" || lmap[i][j] === "*") {
+                            var lr = paper.rect(p + j * cell, p + i * cell, cell, cell).attr(
+                                {strokeWidth: 0, fill: colorOrange1}
+                            );
+                            lr.insertAfter(back);
+                        }
+                    }
+                }
+            }
+
+        }
+
         //Your Additional functions or objects inside scope
         //
         //
