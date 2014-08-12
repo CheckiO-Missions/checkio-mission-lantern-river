@@ -1,24 +1,24 @@
 <div class="story">
     <p>
-        Tōrō nagashi (灯籠流し) is a Japanese ceremony in which participants float paper lanterns (chōchin) down a river;
-        tōrō is traditionally another word for lantern, while nagashi means "cruise, flow". This is primarily done on
-        the last evening of the Bon Festival festival based on the belief that this guides the spirits of the departed
-        back to the other world.
+        Tōrō nagashi (灯籠流し) is a Japanese ceremony in which participants float paper lanterns (chōchin) down a river.
+        The word tōrō is Japanese for lantern, while nagashi means "to cruise" or "flow". This is primarily done on the
+        last evening of the Bon Festival, a festival based on the belief that these lanterns would guide the spirits
+        back to the world of the dead.
+
     </p>
-    <p style="float: right">Wikipedia</p>
 
 </div>
 
 <p>
-    Our robots are going to put illuminated lanterns on a river and look how they are floated.
-    Rivers in the RoboLand have flat banks, right angle turns and the same width on the whole flowing.
+    Our robots are going to float their own illuminated lanterns down a river and watch how they flow down the river.
+    Rivers in RoboLand generally have flat banks, sharp right angle turns and a consistent width throughout the length
+    of the river.
 </p>
 
 <p>
-    Robot put all lanterns in one row for the whole width of the river simultaneously.
-    Each lantern float with constant speed - 1 cell/minute.
-    A river has several streams and each lantern will float in own stream which are not intersected.
-    The image below describes how streams are routed.
+    Each Robot simultaneously put their lantern in a row spanning the entire width of the river. Each lantern floats
+    with a constant speed of 1 cell/minute. The river has several streams and each lantern will float in its own stream
+    without moving into any of the other streams. The image below illustrates how streams flow in the river.
 </p>
 
 <p style="text-align: center;">
@@ -26,23 +26,21 @@
 </p>
 
 <p>
-    The river flow from north to south edge. It's not intersected or merged with other river or itself.
-    Because the river has the same width streams are not intersected each other.
+    The river flows from the northern to the southern edge. It is not intersected by nor does it merge with another
+    river, or a branch of itself. Because the river has the same width, streams do not intersect each other.
 </p>
 
 <p>
-    Robots place lanterns on the north edge of river. This is 0th minutes.
-    The number of lanterns is equal to the river width in cells.
-    Each lantern light all neighbours water cells (including diagonals cells).
-    You should model lantern flow and say how many water cells will be lightened in X minute.
+    The Robots place their lanterns on the northern edge of river. This moment occurrs at the 0th minute. The number of
+    lanterns is equal to the width of the river (in cells). Each lantern lights all the neighbouring cells, including
+    the diagonals cells. You should model how the lanterns flow down the river and determine how many water cells will
+    be lit a a time interval of X minutes.
 </p>
 <p>
-    You are given a map of river fragment as a sequence of strings which forms a matrix.
-    Water cells are marked as ".", land cells - "X".
-    And you are given a time as a number of minutes from the start.
-    Count how many water cells will be lightened.
-    If a cell is lightened twice then count it once.
-    And don't forget count cells with lanterns.
+    You are given a map detailing a section of the river as a sequence of strings which forms a matrix. Water cells are
+    marked as ".", land cells - "X". In addition, you are given a specified time as a number of minutes from when the
+    lanterns are placed. Count how many water cells will are lit at that given time. If a cell is lit by two lanterns at
+    the same time, then count it only once. Don't forget count cells where the lanterns are located.
 </p>
 <p style="text-align: center;">
     <img class="for_info_only" title="lantern-examples" src="{{MEDIA}}lantern-examples.png" alt="lantern-examples"
@@ -70,11 +68,13 @@
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Here we will examine a complex model of parallel motion.
-    With this concept you can easily model a fabric production line.
+    Here we will examine a complex model of parallel motion. This concept can be used to model the flow of a production
+    line in a factory, or racecars over the course of a race track.
 </p>
 
 <p>
-    <strong>Precondition:</strong>
-    <!--TODO-->
+    <strong>Precondition:</strong><br>
+    0 &lt; len(river_map) &lt; 20<br>
+    The river has the same width in cells.<br>
+    "time" is given for cases when all lanterns on the map.
 </p>
